@@ -33,13 +33,6 @@ pip install -r requirements.txt
 python manage.py runserver
 ```
 
-## Screenshots
-
-Add screenshots of:
-- Form page
-- User profile page
-- Edit page
-- Image upload section
 
 ## Future Improvements
 
