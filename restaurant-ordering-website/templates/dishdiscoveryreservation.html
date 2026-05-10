@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dish Discovery Reservation</title>
+    <link rel="stylesheet" href="static\dishdiscoveryreservationstyle.css">
+</head>  
+<body>
+        <nav>
+                <img src="static\logo.png" alt="img">
+        </nav>
+        <h1>BOOKING</h1>
+        <div class="button-container">
+
+            <form action="" method="POST" enctype="multipart/form-data">
+                {%csrf_token%}
+
+                <input class="input-field" type="text" name="name1" placeholder="First Name" required><br>
+                <input class="input-field" type="date" name="name2" required><br>
+                <input class="input-field" type="time" name="name3" placeholder="password" required onclick="bt()">
+                <p id="p"></p>
+                <input class="input-field" type="number"  name="name4" placeholder="People" required onclick="bt1()">
+                <p id="p1"></p>
+                <input class="input-field" type="number" name="name5" placeholder="Phone" required><br>
+                <div class="button-center">
+                    <button class="button" type="submit">Enter</button>
+                </div>
+
+            </form>
+        </div>
+        <script>
+            function bt(){
+                document.getElementById('p').innerHTML="* Give a time between 11.00am to 7.00pm ";
+            }
+
+            function bt1(){
+                document.getElementById('p1').innerHTML="* Reservation only available for 1 to 10 people ";
+            }
+        </script>
+
+</body>
+</html>

@@ -1,0 +1,496 @@
+body{
+    padding: 0;
+    margin: 0;
+    font-family: Arial, sans-serif;
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+
+}
+.page{
+    display: none;
+    position: fixed;
+    left: 0;
+    top:0;
+    overflow: auto;
+    width:100%;
+    height:100%;
+    backdrop-filter: blur(20px);
+    padding-top: 60px;
+}
+.mypage-text{
+    background:url("loadpage.jpg");
+    width: 500px;
+    height:600px;
+    margin-left: 500px;
+    border-radius: 20px;
+    overflow: hidden;
+    
+}
+
+
+
+.mypage-text p{
+    font-size: 30px;
+    margin-top: 150px;
+    padding: 15px;
+    color: white;
+    font-weight: 200px;
+    font-family:'Caveat',cursive;
+}
+
+.mypage-text button{
+    margin-left: 170px;
+    width: 150px;
+    padding: 10px;
+    margin-top: 20px;
+    background: none;
+    color: white;
+}
+
+.mypage-text button:hover{
+    cursor: pointer;
+}
+
+.close-btn1{
+    float: right;
+    margin-right: 20px;
+    padding: 5px;
+    font-size: 28px;
+    font-weight: bold;
+    color: white;
+}
+
+.close-btn1:hover{
+    cursor: pointer;
+    
+}
+
+.nav{
+    background:url("background.jpg"); 
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 800px;          
+}
+nav ul{
+    display: flex;
+    justify-content: right;
+    padding: 0; 
+    list-style:none ;
+    background-color:rgb(70, 50, 53);
+              
+}
+nav li{
+    margin: 20px 37px;
+    padding: 5px;
+
+}
+
+nav li a{
+    text-decoration: none;
+    font-weight:inherit;
+    transition:color 0.3s ease;
+    color: wheat;
+    font-family: 'Roboto', 'Arial', sans-serif;
+    font-weight:bolder;
+    cursor: pointer;
+
+}
+
+nav li button{
+    background-color: wheat;
+    font-size: 15px;
+    font-weight: 500px;
+    color: black;
+    padding: 5px;
+    width: 70px;
+
+}
+
+nav li button:hover{
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    transform:scale(1.1);
+}
+
+
+.logo{
+    margin-right: 500px;
+    width: 100px;
+    height: 100px; 
+
+}
+
+
+.text1{
+    margin-left: 160px;
+    margin-top: 90px;
+    margin-bottom: 0PX;
+    font-size:80px;  
+    color: black;
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    cursor: pointer;
+   
+}
+
+.text1,.text2,.text3{
+    animation-name:head;
+    animation-duration: 10s;
+    animation-fill-mode: forwards;
+ 
+
+}
+.mypage-text p{
+    animation-name: popup;
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+    
+  
+}
+@keyframes popup {
+
+    50%{
+        transform: translateY(10px);
+        
+        
+    }
+    
+    100%{
+        transform: translatey(-10px);
+    }
+    
+}
+
+@keyframes head{
+    
+    0%{
+        transform: translateY(-80px);
+    }
+    
+}
+
+.text1::first-letter{
+    color: black;
+    font-size: 100px;
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    
+}
+.text2{
+    margin-left: 250px;
+    font-size: 70px;
+    margin-top: 40PX;
+    color:#5c3b35;
+    font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif;
+    cursor: pointer;
+}
+.text3{
+    margin-left: 400px;
+    font-size: 20px;
+    margin-top: 110px;
+    font-family: 'Caveat',cursive;
+    cursor: pointer;
+}
+.menutext{
+    text-align: center;
+    
+}
+.menutext h4{
+    color: green;
+}
+.row{
+    margin-top: 20px;
+    display: flex;
+    justify-content:center;
+     animation-timeline: view(70% 5%);
+    animation-name: fade;
+
+}
+.column{
+    flex:20px;
+    padding: 15px;
+}
+.card{
+    width:200px;
+    height: 400px;
+    background-color:white;
+    border: 1px solid black;
+    border-radius: 8px;
+    box-shadow:0 4px 8px rgba(0,0,0,0.2);
+    overflow:hidden;
+   
+}
+
+.card1{
+    width:300px;
+    height: 400px;
+    background-color:white;
+    border: 1px solid black;
+    border-radius: 8px;
+    box-shadow:0 4px 8px rgba(0,0,0,0.2);
+    overflow:hidden;
+    margin-left: 20px;
+   
+}
+.card2{
+    background-color: white;
+    border: 1px solid black;
+    border-radius: 8px;
+    box-shadow:0 4px 8px rgba(0,0,0,0.2);
+    overflow:hidden;
+}
+.card3{
+    margin-left: 640px;
+    background-color: white;
+    border: 1px solid black;
+    border-radius: 8px;
+    box-shadow:0 4px 8px rgba(0,0,0,0.2);
+    overflow:hidden;
+    width: 200px;
+    height:300px;
+}
+.combo{
+    margin-top: 0px;
+    padding: 10px;
+    background-color: rgb(232, 97, 131);
+    color: whitesmoke;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    cursor: pointer;
+}
+.combo:hover{
+    transition: transform 0.3s ease;
+    transform:scale(1.1);
+}
+
+
+.chinese,.italy,.india,.juice,.tea,.dessert,.family{
+    width:100%;
+    height:200px;
+    border-radius: 8px 8px 0 0;
+    object-fit: cover;
+    margin-right: 0px;
+    
+}
+.container{
+    padding: 10px;
+}
+.name{
+    font-size: 15px;
+    color:black;
+}
+
+.chinese:hover {
+    transition: transform 0.3s ease;
+    transform:scale(1.1);
+}
+.italy:hover {
+    transition: transform 0.3s ease;
+    transform:scale(1.1);
+}
+.india:hover{
+    transition: transform 0.3s ease-in;
+    transform:scale(1.1);
+}
+.juice:hover{
+    transition: transform 0.5s ease;
+    transform: translateX(10%);
+}
+.tea:hover{
+    transition: transform 0.3s ease-in;
+    transform:scale(1.1);
+}
+.dessert:hover{
+    transition: transform 0.3s ease-in;
+    transform:scale(1.1);
+}
+.family:hover{
+    transition: transform 0.3s ease-in;
+    transform:scale(1.1);
+}
+
+
+.button{
+    margin-left: 715px;
+    margin-top: 10px;
+    width:100px;
+    padding: 10px;
+    border-radius: 6px;
+    background-color: #4CA1AF;
+    color: white;
+    font-size:15px ;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    cursor:pointer;
+}
+.button:hover{
+    transition: transform 0.3s ease;
+    transform:scale(1.1);
+}
+.textabout{
+    padding: 20px;
+    display:flex;
+    flex-direction:column;
+    align-items: center;
+    border:2px solid black ;
+    background-color: rgb(29, 58, 48);
+    color: whitesmoke;
+    margin-top: 20px;
+    height: 500px;
+    
+}
+.chineseaboutimg{    
+    height: 400px;
+    width:300px;
+    margin:0;
+    padding: 0;
+
+}
+.textabout h2{
+    text-align: center;
+}
+.textabout p{
+    text-align: center;
+}
+hr{
+    margin-top: 10px;
+    width:1000px
+}
+
+.italyheader{
+    display: flex;
+    align-items: center;
+    border: 2px solid black;
+    background-color:wheat;
+    margin:0;
+    margin-top: 20px;
+   
+}
+
+.italyabout{
+margin: 0;
+margin-top: 15px;
+padding: 100px;
+
+}
+
+.italyheader img{
+width: 500px;
+height: 450px;
+margin: 0;
+padding:0;
+}
+
+.login{
+border: 1px solid black;
+height: 300px;
+width: 700px;
+margin-top: 20px;
+background-image:url("signupbg.jpg");
+background-repeat: no-repeat;
+background-position:center;
+background-size: cover;
+border-radius: 10px;
+box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.login button{
+width:200px;
+padding: 15px;
+margin-top: 130px;
+margin-left: 1000px;
+background-color:rgb(241, 174, 48);
+font-size: 20px;
+cursor: pointer;
+}
+
+.loginh2{
+margin-left:550px;
+font-size: 40px;
+font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.loginbg{
+background: linear-gradient(90deg, #A8D0E6, #F7C6C7)
+}
+.indiaabout{
+margin-top: 50px;
+text-align: center;
+border:2px solid black;
+background-color: rgb(243, 243, 144);
+box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+.indiaabout img{
+    margin:0;
+    padding: 0;
+width: 500px;
+height:300px;
+}
+
+.reservation{
+text-align: center;
+margin-top: 20px;
+background:url("reservation.jpg");
+background-repeat: no-repeat;
+background-size: cover;
+height: 400px;
+padding-top: 80px;
+border-radius: 8px;
+box-shadow:0 4px 8px rgba(0,0,0,0.2);
+}
+.reservation h2{
+font-size: 40px;
+color: rgb(17, 17, 16);
+font-family: 'Caveat',cursive;
+}
+.reservation h4{
+font-size: 30px;
+margin-left: 10px;
+font-family: 'Caveat',cursive;
+color:rgb(10, 10, 10);
+}
+.reservation a{
+color: white;
+}
+.reservationbutton{
+width: 200px;
+padding: 10px;
+cursor: pointer;
+color: white;
+background: blue;
+cursor: pointer;
+box-shadow:0 4px 8px rgba(0,0,0,0.2);
+}
+.reservationbutton:hover{
+    transition: transform 0.3s ease;
+    transform:scale(1.1);
+}
+.hr1{
+    margin-top: 20px;
+}
+
+.end{
+    display: flex;
+    gap:10px 200px;
+    padding-left:150px;
+    padding-top: 70px;
+    margin-top: 10px;
+    background-color: gray;
+    height:200px;
+    border-radius: 8px;
+    box-shadow:0 4px 8px rgba(0,0,0,0.2);
+}
+.end p{
+    margin-top: 10px;
+}
+
+ a:link{
+        text-decoration:none}
+
+@keyframes fade {
+    from {
+        opacity: 0;
+        transform: translateY(50px) scale(0.3);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

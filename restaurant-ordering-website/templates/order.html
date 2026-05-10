@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    <title>Food Order</title>
+    <link rel="stylesheet" href="static/orderstyle.css">
+
+    <style>
+        body{
+         font-family: Arial, sans-serif;
+         }
+        .o_img{
+
+    width: 200px;
+    height: 200px;
+    border-radius: 5px;
+
+}
+
+.orderimg{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 100px 100px;
+    justify-content: center;
+    margin-top: 50px;
+    font-family:Arial, sans-serif;
+    text-align: center;
+
+}
+
+.orderimg button{
+
+    position: relative;
+    padding: 5px;
+    background-color: orangered;
+    color: whitesmoke;
+    width: 80px;
+    border-radius: 10px;
+    transition: 400ms;
+
+}
+
+.orderimg button:hover{
+    transform: scale(1.04);
+    cursor: pointer;
+
+}
+
+          .nav-img{
+            width: 100px;
+            height: 80px;
+            position: relative;
+            right: 200px;
+            padding: 0;
+
+
+        }
+
+        .nav ul{
+            display: flex;
+            justify-content: right;
+            gap: 200px;
+            padding: 10px;
+            list-style: none;
+
+
+
+
+        }
+
+        .nav ul li{
+            margin-top: 20px;
+            padding: 20px;
+            color:blue;
+
+        }
+
+        a:link{
+            text-decoration: none;
+        }
+
+        .nav{
+            background-color: aliceblue;
+        }
+
+        .container{
+    text-align: center;
+    margin-top: 50px;
+    font-family: Arial, sans-serif;
+}
+
+.container h3{
+    font-size: 30px;
+    margin-left: 20px;
+}
+
+.cart{
+    text-align: left;
+}
+
+.container input{
+
+    width: 300px;
+    padding: 20px;
+
+}
+
+.container button{
+    margin-left: 10px;
+    border: none;
+    font-size: 30px;
+    cursor: pointer;
+    background: none;
+    position: relative;
+    top: 10px;
+
+}
+
+.container a{
+    font-size: 30px;
+    position: relative;
+    top: 10px;
+    cursor: pointer;
+
+}
+
+    </style>
+</head>
+<body>
+
+   <div class="nav">
+        <nav>
+
+            <ul>
+                <img src="static/logo.png" alt="alt" class="nav-img">
+
+               <a href="http://127.0.0.1:8000/"> <li>Home</li></a>
+               <a href="about"> <li>About</li> </a>
+               <a href="reserve"> <li>Reservation</li> </a>
+               <a href="catering"> <li>Catering</li></a>
+
+            </ul>
+        </nav>
+    </div>
+
+
+
+        <form action="search" method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+
+            <div class="container">
+
+                <h3 class="v1">PRODUCTS</h3>
+                <a href="path16" style="margin-right: 20px;">🛒</a>
+
+                <input type="text" class="form-control" name="name1" placeholder="Search your Product Here"></td>
+                <button type="submit">🔍</button>
+
+            </div>
+        </form>
+
+
+
+   <div class="header">
+       <div class="orderimg">
+
+            {% if foodsearchkey %}
+                  {% for i in foodsearchkey %}
+
+           <div>
+
+          <a href="/orderinfo/{{i.id}}"> <img class="o_img" src="{{i.Image.url}}" alt="Product Image"> </a>
+
+                  <p>{{i.Foodname}}</p><br>
+                <a href="/orderinfo/{{i.id}}"><button>Explore</button></a>
+                <br><br>
+               <a href="/path15/{{i.id}},{{i.Foodname}},{{i.Unitprice}}"><button style="width:120px;" type="submit">Add to Cart</button></a>
+       </div>
+
+
+            {% endfor %}
+        {% else %}
+
+
+      <div class="orderimg">
+           {% for i in orderkey%}
+
+          <div>
+
+                <a href="/orderinfo/{{i.id}}"> <img class="o_img"  src="{{i.Image.url}}" alt="jpg"></a>
+
+               <p>{{i.Foodname}}</p><br>
+                <a href="/orderinfo/{{i.id}}"><button>Explore</button></a>
+                <br><br>
+               <a href="/path15/{{i.id}},{{i.Foodname}},{{i.Unitprice}}"><button style="width:120px;" type="submit">Add to Cart</button></a>
+            
+            </div>
+
+              {% endfor %}
+          {% endif %}
+       </div>
+    </div>
+
+
+    
+</body>
+</html>

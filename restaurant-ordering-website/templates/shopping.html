@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+
+        body{
+         background:url(static/cartbg.jpg);
+         }
+       .cart{
+
+        text-align: center;
+        position: relative;
+        top:150px;
+        border: 2px solid white;
+        height: 200px;
+        padding: 100px;
+        width: 500px;
+        left: 400px;
+        border-radius: 30px;
+        background-color: aliceblue;
+        box-shadow: 0px 10px 20px rgba(0,0,0,0.15);
+
+
+       }
+
+       .cart p{
+        font-family: Arial, sans-serif;
+        font-size: 30px;
+       }
+
+       button{
+        position: relative;
+        top: 100px;
+        width: 200px;
+        padding: 15px;
+        background-color: red;
+        color: aliceblue;
+        cursor: pointer;
+        border-radius: 20px;
+        border-color: beige;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
+       }
+
+       button:hover{
+        transform: scaleY(1.2);
+       }
+    </style>
+</head>
+<body>
+    <div class="cart">
+        <p>Cart add Successfully !!!</p>
+        <a href="{% url 'item' %}" ><button style="margin-right: 10px;" type="submit">Continue Shopping</button></a>
+        <a href="{% url 'usercartdata' %}" ><button type="submit">Go to cart</button></a>
+    </div>
+</body>
+</html>

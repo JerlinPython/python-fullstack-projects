@@ -1,0 +1,35 @@
+.order img{
+    width: 300px;
+    height:300px;
+    border-radius: 10px;
+    box-shadow:0 8px 8px rgba(0,0,0,0.2);
+
+}
+
+.order{
+    display: flex;  
+    flex-wrap: wrap;
+    gap: 100px 100px;
+    justify-content: center;
+    margin-top: 150px;
+    font-family:Arial, sans-serif;
+    text-align: center;
+
+}
+
+.order button{
+    position: relative;
+    padding: 5px;
+    background-color: orangered;
+    color: whitesmoke;
+    width: 80px;
+    border-radius: 10px;
+    transition: 400ms;
+    box-shadow:0 4px 8px rgba(0,0,0,0.2);
+}
+
+.order button:hover{
+    transform: scale(1.04);
+    cursor: pointer;
+
+}

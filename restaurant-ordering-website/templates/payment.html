@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment</title>
+
+    <style>
+        .header{
+            text-align: center;
+            margin-top: 20px;
+            font-family: monospace;
+            border: 2px solid white;
+            padding: 30px;
+            position: relative;
+            left: 550px;
+            width: 400px;
+            border-radius: 30px;
+            padding-bottom: 50px;
+            box-shadow: 0px 4px 6px rgba(0,0,0,0.1);
+
+        }
+        hr{
+            width: 300px;
+        }
+
+        .card{
+
+            font-family: Arial, sans-serif;
+            border: 2px solid white;
+            box-shadow: 0px 10px 20px rgba(0,0,0,0.15);
+            padding: 20px;
+            width: 300px;
+            position: relative;
+            left: 30px;
+            border-radius: 20px;
+            top: 20px;
+
+        }
+
+
+        .card label{
+            position: relative;
+            right: 50px;
+            font-size:15px;
+            color: grey;
+
+
+        }
+
+        .card input{
+            padding: 10px;
+            border-radius: 5px;
+            width: 200px;
+            border: 2px solid beige;
+
+        }
+
+        .card .exp-date-input{
+            width: 100px;
+            margin-right: 30px;
+
+        }
+
+        .card .cvv-input{
+            width:50px;
+
+        }
+
+        .card .checkbox-btn{
+
+            width: 50px;
+
+
+
+        }
+
+        .card .checkbox-btn:checked{
+            background-color: red;
+        }
+
+        .card .delivery-btn{
+            padding: 10px;
+            position: relative;
+            right: 20px;
+            top: 10px;
+            border-radius: 10px;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0px 4px 6px rgba(0,0,0,0.1);
+
+        }
+
+        .card .order-btn{
+
+            position: relative;
+            width: 100px;
+            padding: 10px;
+            border-radius: 20px;
+            top: 10px;
+            background-color: red;
+            color: aliceblue;
+            cursor: pointer;
+            box-shadow: 0px 4px 6px rgba(0,0,0,0.1);
+
+        }
+
+        .card .order-btn:hover{
+            transform: scaleY(1.1);
+        }
+
+        .card .delivery-btn:hover{
+            transform: scaleY(1.1);
+        }
+
+        input[type="checkbox"]:checked{
+            accent-color: red;
+        }
+
+
+    </style>
+</head>
+<body>
+
+
+    <div class="header">
+
+        <h1 style="color: blue;">Payment</h1>
+    <h1 style="font-size: 20px;">Total Amount:Rs {{sum}}</h1>
+
+        <div class="card">
+            <p>💳 Credit/Debit Card</p>
+
+
+            <hr>
+            <br>
+            <label for="name">Cardholder Name</label> <br> <br>
+            <input type="text" name="name1"> <br> <br>
+            <label for="num">Card Number</label> <br> <br>
+            <input type="text" value="**** **** **** 4296" name="name2" > <br>  <br>
+            <label for="date"  style="margin-left: 100px;">Expiration Date</label>
+            <label for="cvv" style="margin-left: 60px;" >CVV</label>  <br> <br>
+            <input type="date" name="name3" class="exp-date-input">
+
+            <input type="text" name="name4" class="cvv-input"> <br><br>
+            <input type="checkbox"  class="checkbox-btn">Save this card for next purchases
+
+            <br> <br>
+
+
+           <a href="success"><button type="submit" class="delivery-btn">💸 cash on delivery. ></button> </a>
+
+
+           <a href="success"><button type="submit" class="order-btn">Order</button> </a>
+
+
+        </div>
+
+
+
+    </div>
+
+</body>
+</html>

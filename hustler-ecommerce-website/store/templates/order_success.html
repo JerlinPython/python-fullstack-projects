@@ -1,0 +1,201 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Order Success - HUSTLER CURRENCY{% endblock %}
+
+{% block content %}
+<div class="order-success-page">
+
+    <!-- SUCCESS HEADER -->
+    <div class="success-header">
+        <div class="success-icon">
+            <i class="fas fa-check-circle"></i>
+        </div>
+        <h1>🎉 Order Confirmed!</h1>
+
+        {% if order.track_id %}
+            <p><strong>Tracking ID:</strong> {{ order.track_id }}</p>
+        {% endif %}
+
+        <p class="success-message">Thank you for your purchase!</p>
+    </div>
+
+    <!-- ORDER SUMMARY -->
+    <div class="order-summary-card">
+        <h2>🧾 Order Summary</h2>
+
+        <div class="items-list">
+            {% for item in order_items %}
+            <div class="order-item">
+                <div>
+                    <strong>{{ item.product.product_name }}</strong><br>
+                    Qty: {{ item.quantity }} × ₹{{ item.price|floatformat:2 }}
+                </div>
+                <div>
+                    ₹{{ item.item_total|floatformat:2 }}
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+
+        <div class="order-totals">
+            <div class="total-row">
+                <span>Subtotal</span>
+                <span>₹{{ order.total_amount|floatformat:2 }}</span>
+            </div>
+
+            <div class="total-row">
+                <span>Shipping</span>
+                <span class="free">FREE</span>
+            </div>
+
+            {% if order.payment_method == 'cod' and order.payment_status == 'partial' %}
+            <div class="cod-box">
+                <div class="total-row">
+                    <span>COD Advance Paid (20%)</span>
+                    <span>₹{{ cod_advance|floatformat:2 }}</span>
+                </div>
+                <div class="total-row">
+                    <span>Balance on Delivery</span>
+                    <span>₹{{ balance_on_delivery|floatformat:2 }}</span>
+                </div>
+            </div>
+            {% endif %}
+
+            <div class="total-row grand-total">
+                <span>Total Amount</span>
+                <span>₹{{ order.total_amount|floatformat:2 }}</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- SHIPPING + PAYMENT -->
+    <div class="info-cards">
+
+        <!-- SHIPPING -->
+        <div class="info-card">
+            <h3>🚚 Shipping Details</h3>
+            <p><strong>{{ order.customer }}</strong></p>
+            <p>{{ order.address.address }}</p>
+            <p>{{ order.address.city }}, {{ order.address.state }}</p>
+            <p>{{ order.address.country }} - {{ order.address.pin_code }}</p>
+            <p>📞 {{ order.phone }}</p>
+            <p>📧 {{ order.email }}</p>
+        </div>
+
+        <!-- PAYMENT -->
+        <div class="info-card">
+            <h3>💳 Payment Info</h3>
+
+            <p>
+                <strong>Method:</strong>
+                {% if order.payment_method == 'razorpay' %}
+                    Razorpay
+                {% else %}
+                    Cash on Delivery
+                {% endif %}
+            </p>
+
+            <p>
+                <strong>Status:</strong>
+                {% if order.payment_status == 'completed' %}
+                    ✅ Paid
+                {% elif order.payment_status == 'partial' %}
+                    ⚡ 20% Advance Paid
+                {% else %}
+                    ⏳ Pending
+                {% endif %}
+            </p>
+
+            {% if order.razorpay_payment_id %}
+            <p>
+                <strong>Transaction ID:</strong><br>
+                {{ order.razorpay_payment_id }}
+            </p>
+            {% endif %}
+
+            <p>
+                <strong>Order Date:</strong><br>
+                {{ order.created_at|date:"F d, Y h:i A" }}
+            </p>
+
+            {% if order.payment_method == 'cod' %}
+            <div class="cod-note">
+                <p>✔ 20% advance received</p>
+                <p>✔ Pay remaining amount on delivery</p>
+            </div>
+            {% endif %}
+        </div>
+    </div>
+
+    <!-- ACTION -->
+    <div class="action-buttons">
+        <a href="{% url 'home' %}" class="btn">Continue Shopping</a>
+    </div>
+
+</div>
+
+<style>
+.order-success-page {
+    max-width: 900px;
+    margin: auto;
+    padding: 20px;
+}
+.success-header {
+    text-align: center;
+    padding: 30px;
+    background: #1a237e;
+    color: #fff;
+    border-radius: 12px;
+}
+.order-summary-card,
+.info-card {
+    background: #fff;
+    padding: 20px;
+    border-radius: 12px;
+    margin-top: 20px;
+}
+.order-item,
+.total-row {
+    display: flex;
+    justify-content: space-between;
+    margin: 10px 0;
+}
+.grand-total {
+    font-weight: bold;
+    font-size: 18px;
+}
+.free {
+    color: green;
+}
+.info-cards {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+.cod-box,
+.cod-note {
+    background: #fff3cd;
+    padding: 10px;
+    margin-top: 10px;
+    border-radius: 6px;
+}
+.action-buttons {
+    text-align: center;
+    margin: 30px 0;
+}
+.btn {
+    padding: 12px 30px;
+    background: #1a237e;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 6px;
+}
+@media (max-width: 768px) {
+    .info-cards {
+        grid-template-columns: 1fr;
+    }
+}
+</style>
+
+{% endblock %}

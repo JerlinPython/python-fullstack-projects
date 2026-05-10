@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="static/cartstyle.css">
+    <style>
+        body{
+    padding: 0;
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background:url(static/shoppingbg.jpg);
+
+
+}
+
+.header{
+  border:2px solid white;
+  height:400px;
+  width:500px;
+  margin-top:150px;
+  margin-left:500px;
+  border-radius:25px;
+  background-color:white;
+  color:black;
+      box-shadow:0 4px 8px rgba(0,0,0,0.2);
+
+    }
+
+.text input{
+
+width:200px;
+padding:10px;
+margin-top:50px;
+}
+
+
+
+button{
+    position: relative;
+    top:50px;
+
+    width: 150px;
+    padding: 15px;
+    background-color: orangered;
+    transition: 400ms;
+    color: whitesmoke;
+    font-size: 15px;
+}
+
+button:hover{
+    transform: scale(1.05);
+    cursor: pointer;
+}
+
+.text{
+    text-align: center;
+    margin-top:50px;
+
+}
+
+.text p{
+    position: relative;
+    top:50px
+}
+
+    </style>
+</head>
+<body>
+    <form action="" method="post" enctype="multipart/form-data">
+        {%csrf_token %}
+
+    <div class="header">
+
+        <div class="text">
+            <label>QUANTITY:</label><br><br>
+           <input type="number" name="name1" required>
+           <p>Continue to</p>
+
+            <br>
+            <a href="" class="btn btn-primary"> <button type="submit" >Add to Cart</button></a>
+
+        </div>
+
+    </div>
+
+</form>
+</body>
+</html>

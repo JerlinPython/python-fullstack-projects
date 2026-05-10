@@ -1,0 +1,119 @@
+body {
+    font-family: Arial, sans-serif;
+    background-image: url("resarveation\ bg1.1.jpeg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height:100vh;
+    overflow: hidden;
+
+
+}
+nav img{
+    margin-top: 140px;
+    margin-right: 1400px;
+    width: 100px;
+    height: 100px; 
+}
+
+ h1{
+    font-size: 36px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    text-align: center;
+    color:rgb(237, 229, 229);
+    font-family: 'Caveat', cursive;
+}
+
+.button-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 400px;
+
+}
+
+.button {
+    background-color: #0056b3;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    margin: 10px 0;
+    border-radius: 5px;
+    margin-top: 60px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.button:hover {
+    background-color: #0056b3;
+    transform: scale(1.1);
+}
+
+.input-field {
+    width:90%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid black;
+    border-radius: 5px;
+    outline: none;
+}
+
+.input-field::placeholder {
+    color: black;
+}
+
+.button-center {
+    display: flex;
+    justify-content: center;
+}
+
+form {
+    max-width: 500px;
+    width: 110%;
+    height: 600px;
+    padding: 30px;
+   background-image: url("reservationbg.jpg");
+   background-repeat: no-repeat;
+   background-size: cover;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    
+}
+.button{
+    width: 200px;
+    padding: 10px;
+
+}
+
+
+@media screen and (max-width: 600px) {
+    h1 {
+        font-size: 24px;
+    }
+
+    form {
+        padding: 10px;
+    }
+}
+
+#p{
+    color: rgb(245, 245, 245);
+    font-size: small;
+    margin-top: 0;
+    background-color:black;
+    margin-left: 10px;
+}
+
+#p1{
+    color: rgb(245, 245, 245);
+    font-size: small;
+    margin-top: 0;
+    background-color:black;
+    margin-left: 10px;
+    width:300px;
+}

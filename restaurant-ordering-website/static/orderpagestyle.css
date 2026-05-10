@@ -1,0 +1,49 @@
+body{
+    padding: 0;
+    margin: 0;
+    background-color:rgb(105, 133, 64);
+}
+
+
+img{
+    width: 400px;
+    height: 500px;
+    border-radius: 10px;
+    box-shadow: 2px 1px 2px 0px rgb(79, 77, 77);
+}
+
+.header{
+    display:flex;
+    gap: 40px;
+    justify-content: center;
+    position: relative;
+    top: 100px;
+    font-family: Arial, sans-serif;
+
+}
+
+.text{
+    display: inline;
+    position: relative;
+    top:50px;
+    color: white;
+
+
+}
+
+button{
+    position: relative;
+    left: 50px;
+    width: 150px;
+    padding: 15px;
+    background-color: orangered;
+    transition: 400ms;
+    color: whitesmoke;
+    font-size: 15px;
+}
+
+button:hover{
+    transform: scale(1.05);
+    cursor: pointer;
+}
+

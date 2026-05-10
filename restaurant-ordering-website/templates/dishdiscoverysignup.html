@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dish Discovery Login</title>
+    <link rel="stylesheet" href="static/dishdiscoverysignupstyle.css">
+</head>
+<body>
+    <div class="header">
+        <div>
+            <img src="static\signup1.1bg.jpg">
+        </div>
+        <form action="" method="post" enctype="multipart/form-data">
+            {%csrf_token%}
+           <div class="login">
+            <h1>Sign-Up to Dish Discovery</h1>
+            <input class="input" type="text" name="name1" placeholder="Username">
+            <input class="input" type="gmail" name="name2" placeholder="Gmail"><br>
+            <input class="input" type="password" name="name3" placeholder="Password">
+            <input class="input" type="text" name="name4" placeholder="Phone Number"><br> <br>
+            <input style="margin-left: 150px;" class="input" type="text" name="name5" placeholder="Address">
+            <br> <br> <br>
+            <input class="input1" type="submit" style="margin-left:150px" >
+            </div>
+        </form>
+
+
+    </div>
+</body>
+</html>

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Page</title>
+    <link rel="stylesheet" href="static/orderpagestyle.css">
+    <style>
+        body{
+    padding: 0;
+    margin: 0;
+     background:linear-gradient(to bottom, #777372, #18525b);
+    height: 100vh;
+}
+
+
+img{
+    width: 400px;
+    height: 500px;
+    border-radius: 10px;
+    box-shadow: 2px 1px 2px 0px rgb(79, 77, 77);
+}
+
+.header{
+    display:flex;
+    gap: 40px;
+    justify-content: center;
+    position: relative;
+    top: 100px;
+    font-family: Arial, sans-serif;
+
+}
+
+.text{
+    display: inline;
+    position: relative;
+    top:50px;
+    color: white;
+
+
+}
+
+button{
+    position: relative;
+    left: 50px;
+    width: 150px;
+    padding: 15px;
+    background-color: orangered;
+    transition: 400ms;
+    color: whitesmoke;
+    font-size: 15px;
+}
+
+button:hover{
+    transform: scale(1.05);
+    cursor: pointer;
+}
+        .about{
+        width:500px;
+
+        }
+
+
+    </style>
+</head>
+<body>
+<div class="header">
+
+        <img src="{{infokey.Image.url}}" alt="img">
+       
+    <div class="text">
+        <h1>{{infokey.Foodname}}</h1>
+        <h1>₹ {{infokey.Unitprice}}</h1>
+        <p>{{infokey.Brand}}</p><br><br>
+        <p class="about">{{infokey.Description}}</p>
+
+        <br>
+        <br>
+       <a href="/order"><button style="width:200px">Back To Order Page</button></a>
+
+    </div>
+
+
+        
+</div>
+    
+</body>
+</html>

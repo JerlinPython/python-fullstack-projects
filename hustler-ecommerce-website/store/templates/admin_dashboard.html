@@ -1,0 +1,314 @@
+<!-- templates/admin_dashboard.html -->
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Admin Dashboard - HUSTLER CURRENCY</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<style>
+/* ================= Base & Reset ================= */
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+body { background-color: #f5f6fa; color: #333; }
+a { text-decoration: none; }
+
+/* ================= Dashboard Header ================= */
+.dashboard-header { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; padding: 20px; background-color: #fff; border-radius: 10px; margin-bottom: 20px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); }
+.dashboard-header h1 { font-size: 1.8rem; display: flex; align-items: center; gap: 10px; color: #2c3e50; }
+.dashboard-header p { font-size: 0.9rem; color: #555; margin-left: auto; }
+.header-actions { display: flex; gap: 10px; flex-wrap: wrap; }
+
+/* ================= Buttons ================= */
+button, .btn { cursor: pointer; border: none; border-radius: 5px; padding: 6px 12px; font-size: 0.85rem; display: flex; align-items: center; gap: 5px; transition: 0.2s; }
+.print-btn { background-color: #2ecc71; color: #fff; }
+.print-btn:hover { background-color: #27ae60; }
+.delete-btn { background-color: #e74c3c; color: #fff; }
+.delete-btn:hover { background-color: #c0392b; }
+.date-btn { background-color: #3498db; }
+.date-btn:hover { background-color: #2980b9; }
+
+/* ================= Statistics Cards ================= */
+.stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 15px; margin-bottom: 20px; }
+.stat-card { background-color: #fff; padding: 15px; border-radius: 10px; display: flex; align-items: center; gap: 15px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); transition: 0.2s; }
+.stat-card:hover { transform: translateY(-2px); }
+.stat-card .stat-icon { font-size: 2rem; }
+.stat-card.revenue .stat-icon { color: #2ecc71; }
+.stat-card.orders .stat-icon { color: #e67e22; }
+.stat-card.today .stat-icon { color: #9b59b6; }
+.stat-card.month .stat-icon { color: #f39c12; }
+.stat-card.balance .stat-icon { color: #f1c40f; }
+.stat-info h3 { font-size: 0.9rem; color: #555; }
+.stat-value { font-size: 1.2rem; font-weight: bold; color: #2c3e50; }
+
+/* ================= Orders Table ================= */
+.orders-table-container { overflow-x: auto; }
+.orders-table { width: 100%; border-collapse: collapse; background-color: #fff; border-radius: 10px; overflow: hidden; box-shadow: 0 4px 6px rgba(0,0,0,0.05); }
+.orders-table th, .orders-table td { padding: 10px 12px; text-align: left; border-bottom: 1px solid #eee; }
+.orders-table th { background-color: #3498db; color: #fff; text-transform: uppercase; font-size: 0.85rem; }
+.orders-table tbody tr:hover { background-color: #f1f1f1; }
+.order-checkbox { width: 18px; height: 18px; }
+
+/* ================= Badges ================= */
+.status-badge, .payment-badge { padding: 4px 8px; border-radius: 5px; color: #fff; text-transform: capitalize; font-size: 0.75rem; }
+.status-badge.pending { background-color: #e67e22; }
+.status-badge.completed { background-color: #2ecc71; }
+.status-badge.cancelled { background-color: #e74c3c; }
+.payment-badge.cod { background-color: #f39c12; }
+.payment-badge.online { background-color: #27ae60; }
+
+/* ================= Action Buttons ================= */
+.action-buttons a, .action-buttons button { padding: 5px 10px; margin-right: 5px; border-radius: 5px; font-size: 0.75rem; cursor: pointer; transition: 0.2s; }
+.btn-view { background-color: #3498db; color: #fff; }
+.btn-print { background-color: #2ecc71; color: #fff; }
+.btn-print-single { background-color: #9b59b6; color: #fff; }
+.btn-delete-single { background-color: #e74c3c; color: #fff; }
+.action-buttons button:hover, .action-buttons a:hover { opacity: 0.85; }
+
+/* ================= Balance Column ================= */
+.balance-column { font-weight: bold; color: #f1c40f; }
+
+/* ================= Empty State ================= */
+.empty-state { text-align: center; padding: 20px; color: #999; }
+
+/* ================= Responsive ================= */
+@media(max-width:768px){
+    .dashboard-header { flex-direction: column; align-items:flex-start; gap: 10px; }
+    .stats-grid { grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); }
+}
+
+
+.status-badge.processing { background-color: #3498db; }
+.status-badge.shipped { background-color: #9b59b6; }
+.status-badge.delivered { background-color: #2ecc71; }
+.status-badge.pending { background-color: #f39c12; }
+.status-badge.cancelled { background-color: #e74c3c; }
+
+.payment-badge.cod { background-color: #f39c12; }
+.payment-badge.razorpay { background-color: #27ae60; }
+
+</style>
+</head>
+<body>
+
+<div class="admin-dashboard">
+    <!-- Header -->
+    <div class="dashboard-header">
+        <h1><i class="fas fa-tachometer-alt"></i> Admin Dashboard</h1>
+        <p>Order Management System</p>
+        <div class="header-actions">
+            <input type="date" id="orderDate" value="{% now 'Y-m-d' %}">
+            <button onclick="printOrdersByDate()" class="print-btn date-btn"><i class="fas fa-calendar-day"></i> Print by Date</button>
+            <button onclick="printTodayOrders()" class="print-btn"><i class="fas fa-print"></i> Print Today's Orders</button>
+            {% comment %} <button onclick="printSelectedOrders()" class="print-btn" id="bulkPrintBtn" disabled><i class="fas fa-print"></i> Print Selected (0)</button> {% endcomment %}
+            <button onclick="printAllOrders()" class="print-btn"><i class="fas fa-print"></i> Print All Orders</button>
+            <button onclick="deleteSelectedOrders()" class="delete-btn" id="deleteBtn" disabled><i class="fas fa-trash"></i> Delete Selected (0)</button>
+        </div>
+    </div>
+
+    <!-- Statistics Cards -->
+    <div class="stats-grid">
+        <div class="stat-card revenue">
+            <div class="stat-icon"><i class="fas fa-money-bill-wave"></i></div>
+            <div class="stat-info">
+                <h3>Total Revenue</h3>
+                <p class="stat-value">₹{{ stats.total_revenue|floatformat:2 }}</p>
+
+            </div>
+        </div>
+        <div class="stat-card orders">
+            <div class="stat-icon"><i class="fas fa-shopping-bag"></i></div>
+            <div class="stat-info">
+                <h3>Total Orders</h3>
+                <p class="stat-value">{{ stats.total_orders }}</p>
+            </div>
+        </div>
+        <div class="stat-card today">
+            <div class="stat-icon"><i class="fas fa-calendar-day"></i></div>
+            <div class="stat-info">
+                <h3>Today's Orders</h3>
+                <p class="stat-value">{{ stats.today_orders }}</p>
+            </div>
+        </div>
+        <div class="stat-card month">
+            <div class="stat-icon"><i class="fas fa-calendar-alt"></i></div>
+            <div class="stat-info">
+                <h3>This Month</h3>
+                <p class="stat-value">{{ stats.month_orders }}</p>
+            </div>
+        </div>
+        {% comment %} <div class="stat-card balance">
+            <div class="stat-icon"><i class="fas fa-wallet"></i></div>
+            <div class="stat-info">
+                <h3>Total Balance</h3>
+                <p class="stat-value">₹{{ stats.total_balance|floatformat:2 }}</p>
+            </div>
+        </div> {% endcomment %}
+    </div>
+
+    <!-- Orders Table -->
+ <!-- Orders Table -->
+
+ <!-- Orders Table -->
+<div class="orders-table-container">
+    <table class="orders-table">
+        <thead>
+<tr>
+    <th><input type="checkbox" id="selectAllOrders" onchange="toggleSelectAll()"></th>
+    <th>Order ID</th>
+    <th>Customer</th>
+    <th>Date</th>
+    <th>Total</th>
+    <th>Paid</th>
+    <th>Balance</th>
+    <th>Track ID</th>
+    <th>Payment</th>
+    <th>Status</th>
+    <th>Actions</th>
+</tr>
+</thead>
+
+    <tbody>
+{% for order in recent_orders %}
+<tr data-order-id="{{ order.id }}">
+
+    <!-- Checkbox -->
+    <td>
+        <input type="checkbox"
+               class="order-checkbox"
+               value="{{ order.id }}"
+               onchange="updateActionButtons()">
+    </td>
+
+    <!-- Order ID -->
+    <td>#{{ order.order_id|slice:":8" }}</td>
+
+    <!-- Customer -->
+    <td>{{ order.customer }}</td>
+
+    <!-- Date -->
+    <td>{{ order.created_at|date:"d/m/Y" }}</td>
+
+    <!-- Total -->
+    <td>₹{{ order.total_amount|floatformat:2 }}</td>
+
+    <!-- Paid -->
+    <td>₹{{ order.display_paid|floatformat:2 }}</td>
+
+    <!-- Balance -->
+    <td class="balance-column">
+        {% if order.balance_amount > 0 %}
+            ₹{{ order.balance_amount|floatformat:2 }}
+        {% else %}
+            -
+        {% endif %}
+    </td>
+
+    <!-- Track ID -->
+    <td>
+        {% if order.track_id %}
+            {{ order.track_id }}
+        {% else %}
+            No ID
+        {% endif %}
+    </td>
+
+    <!-- Payment -->
+    <td>
+        <span class="payment-badge {{ order.payment_method }}">
+            {{ order.payment_method|upper }}
+        </span>
+    </td>
+
+    <!-- Status -->
+    <td>
+        <span class="status-badge {{ order.status }}">
+            {{ order.status|title }}
+        </span>
+    </td>
+
+    <!-- Actions -->
+    <td class="action-buttons">
+        <a href="{% url 'order_detail_admin' order.id %}" class="btn-view">
+            <i class="fas fa-eye"></i>
+        </a>
+        <a href="{% url 'print_shipping_label' order.id %}" class="btn-print" target="_blank"><i class="fas fa-print"></i> Print</a>
+        <button onclick="deleteSingleOrder('{{ order.id }}', '{{ order.order_id }}')" class="btn-delete-single"><i class="fas fa-trash"></i></button>
+    </td>
+
+</tr>
+{% empty %}
+<tr>
+    <td colspan="11" class="empty-state">No orders found</td>
+</tr>
+{% endfor %}
+</tbody>
+
+    </table>
+</div>
+
+<script>
+let selectedOrders = [];
+
+function updateActionButtons() {
+    selectedOrders = Array.from(document.querySelectorAll('.order-checkbox:checked')).map(cb => cb.value);
+    document.getElementById('bulkPrintBtn').innerText = `Print Selected (${selectedOrders.length})`;
+    document.getElementById('deleteBtn').innerText = `Delete Selected (${selectedOrders.length})`;
+    const disabled = selectedOrders.length === 0;
+    document.getElementById('bulkPrintBtn').disabled = disabled;
+    document.getElementById('deleteBtn').disabled = disabled;
+}
+
+function toggleSelectAll() {
+    const checked = document.getElementById('selectAllOrders').checked;
+    document.querySelectorAll('.order-checkbox').forEach(cb => cb.checked = checked);
+    updateActionButtons();
+}
+
+function printSingleOrder(id) { alert(`Printing label for order ID: ${id}`); }
+function deleteSingleOrder(id, orderId) { if(confirm(`Delete order #${orderId}?`)) document.querySelector(`tr[data-order-id='${id}']`).remove(); updateActionButtons(); }
+
+function printAllOrders() { const rows = Array.from(document.querySelectorAll('.orders-table tbody tr')); openPrintWindow(rows); }
+function printSelectedOrders() { if(selectedOrders.length===0) return alert("No orders selected"); const rows = selectedOrders.map(id=>document.querySelector(`tr[data-order-id='${id}']`)); openPrintWindow(rows); }
+function printTodayOrders() { const today = new Date().toLocaleDateString('en-GB'); const rows = Array.from(document.querySelectorAll('.orders-table tbody tr')); const filtered = rows.filter(row=>row.children[3].innerText===today); if(filtered.length===0) return alert("No orders for today"); openPrintWindow(filtered); }
+function printOrdersByDate() { const date = document.getElementById('orderDate').value; if(!date) return alert("Select a date"); const rows = Array.from(document.querySelectorAll('.orders-table tbody tr')); const filtered = rows.filter(row=>{ const rdate=row.children[3].innerText.split('/').reverse().join('-'); return rdate===date; }); if(filtered.length===0) return alert("No orders for selected date"); openPrintWindow(filtered); }
+
+function openPrintWindow(rows) {
+    let content = `<html><head><title>Print Orders</title><style>table{width:100%;border-collapse:collapse;margin-top:20px;}th,td{border:1px solid #ccc;padding:8px;text-align:left;}th{background:#3498db;color:#fff;}</style></head><body><h2>Orders</h2><table><thead><tr><th>Order ID</th><th>Customer</th><th>Date</th><th>Amount</th><th>Balance</th><th>Track ID</th><th>Payment</th><th>Status</th></tr></thead><tbody>`;
+    rows.forEach(row=>{ const cells=Array.from(row.children).slice(1,9); content+='<tr>'; cells.forEach(cell=>content+=`<td>${cell.innerText}</td>`); content+='</tr>'; });
+    content+=`</tbody></table></body></html>`;
+    const w=window.open('','_blank'); w.document.write(content); w.document.close(); w.print();
+}
+
+function deleteSelectedOrders() {
+    if(selectedOrders.length===0) return;
+    if(confirm(`Delete ${selectedOrders.length} selected orders?`)){
+        selectedOrders.forEach(id=>document.querySelector(`tr[data-order-id='${id}']`).remove());
+        updateActionButtons();
+    }
+}
+
+function printOrdersByDate() {
+    const date = document.getElementById('orderDate').value;
+    if (!date) return alert("Select a date");
+    // Open the Django view for printing by date
+    window.open(`/dashboard/print_orders_by_date/?date=${date}`, '_blank');
+}
+
+function printTodayOrders() {
+    const today = new Date().toISOString().split('T')[0]; // YYYY-MM-DD
+    window.open(`/dashboard/print_orders_by_date/?date=${today}`, '_blank');
+}
+
+function printAllOrders() {
+    window.open(`/dashboard/print_all_orders/`, '_blank');
+}
+
+function printSelectedOrders() {
+    if (selectedOrders.length === 0) return alert("No orders selected");
+    window.open(`/dashboard/print_orders_selected/?ids=${selectedOrders.join(',')}`, '_blank');
+}
+
+</script>
+
+</body>
+</html>

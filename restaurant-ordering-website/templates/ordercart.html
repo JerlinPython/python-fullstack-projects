@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dish Cart</title>
+    <style>
+
+         body{
+            font-family: Arial, sans-serif;
+            font-size: 15px;
+          }
+
+       .tablecontainer{
+          position: relative;
+          top: 50px;
+          width: 800px;
+          left:350px;
+
+
+
+       }
+
+        table{
+            width:100%;
+            padding: 50px;
+            border-radius: 20px;
+            border: 1px solid gainsboro;
+
+
+
+        }
+
+        th{
+
+            text-align: center;
+            border-radius: 10px;
+
+           padding: 10px;
+
+        }
+
+        td{
+
+            position: relative;
+            top: 20px;
+            padding: 20px;
+        }
+
+
+        button{
+
+            border-radius: 3px;
+            box-shadow: 1px 1px 0 0 rgb(154, 142, 142);
+            cursor: pointer;
+            background-color: red;
+            color: aliceblue;
+            padding:10px;
+            width:100px;
+
+        }
+
+        button:hover{
+            transform: scaleX(1.05);
+        }
+
+        .nav-img{
+            width: 100px;
+            height: 80px;
+            position: relative;
+            right: 200px;
+            padding: 0;
+
+
+        }
+
+        .nav ul{
+            display: flex;
+            justify-content: right;
+            gap: 200px;
+            padding: 10px;
+            list-style: none;
+
+
+
+
+        }
+
+        .nav ul li{
+            margin-top: 20px;
+            padding: 20px;
+            color:blue;
+
+        }
+
+        a:link{
+            text-decoration: none;
+        }
+
+        .nav{
+            background-color: aliceblue;
+        }
+
+
+        .total{
+            position: relative;
+            top:100px;
+        }
+
+        .text-center{
+            text-align: center;
+            position: relative;
+            top: 40px;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="nav">
+        <nav>
+
+            <ul>
+                <img src="static/logo.png" alt="alt" class="nav-img">
+
+               <a href="http://127.0.0.1:8000/"> <li>Home</li></a>
+               <a href="about"> <li>About</li> </a>
+               <a href="reserve"> <li>Reservation</li> </a>
+               <a href="catering"> <li>Catering</li></a>
+
+            </ul>
+        </nav>
+    </div>
+
+    <div class="tablecontainer">
+     <table class="table  table-bordered " >
+  <tr>
+  <th>Productid</th>
+  <th>Productname</th>
+  <th>Quantity</th>
+  <th>Price</th>
+
+  </tr>
+
+ {% for i in usercartdatakey %}
+<tr>
+  <td>{{i.Productid}}</td>
+  <td>{{i.Foodname}}</td>
+  <td>{{i.Quantity}}</td>
+  <td> Rs {{i.price}}</td>
+  <td><a href="/del/{{i.id}}">Remove</a></td>
+
+</tr>
+{% endfor %}
+</table>
+
+    </div>
+<div class="total">
+<h4 align="center">Total Amount:  Rs {{sum}}</h4>
+
+  <div class="text-center">
+
+    <a href="payment" ><button>Place Order</button> </a>
+    <a href="http://127.0.0.1:8000/" ><button>Logout</button></a>
+
+  </div>
+
+
+</div>
+
+
+
+
+
+
+</body>
+</html>

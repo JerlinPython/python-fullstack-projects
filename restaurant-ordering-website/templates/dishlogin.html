@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <style>
+
+        body{
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background: url(static/loginbg.jpg);
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: cover;
+            color: aliceblue;
+        }
+        .text{
+            text-align: center;
+            position: relative;
+            top: 100px;
+        }
+
+        .text h2{
+            font-size: 50px;
+            font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        }
+
+        .text input{
+            width:200px;
+            padding: 10px;
+
+        }
+
+        .text button{
+            width: 100px;
+            padding: 10px;
+            position: relative;
+            top: 10px;
+            background-color: blue;
+            color: thistle;
+            cursor:pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <div class="text">
+
+            <h2>LOGIN</h2>
+            <form action="" method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                <label for="name">Username:</label><br><br>
+                <input type="text"  name="name1"><br><br>
+                <label for="password">Password:</label><br><br>
+                <input type="password"  name="name2" ><br><br>
+                <h5>Don't have a account ?   <a href="sign">Sign-Up</a></h5>
+                <button type="submit">Login</button>
+            </form>
+        </div>
+    </div>
+
+</body>
+</html>
