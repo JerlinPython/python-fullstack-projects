@@ -1,0 +1,115 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bank Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color:white;
+
+        }
+
+        .registration-container {
+            backdrop-filter: blur(20px);
+            padding: 100px;
+            padding-top:50px;
+            padding-bottom:20px;
+
+            border-radius: 10px;
+            width: 300px;
+            text-align: center;
+        }
+
+
+
+        label {
+            display: block;
+            margin-top: 10px;
+            text-align: left;
+            color:white;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            margin: 8px 0;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            margin-top: 10px;
+            box-sizing: border-box;
+            border: none;
+            border-radius: 5px;
+            background-color: #007BFF;
+            color: white;
+            cursor: pointer;
+        }
+        .background-image {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-image: url(static/financialbg.jpg);
+            background-size: cover;
+            background-position: center;
+            z-index: -1;
+        }
+
+          nav{
+            position: relative;
+            left: 700px;
+            bottom:100px;
+            list-style: none;
+
+        }
+
+        a:link{
+            text-decoration: none;
+        }
+
+        nav li{
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="background-image"></div>
+    <div class="registration-container">
+         <nav>
+           <a href="finland"> <li>Back</li> </a>
+        </nav>
+        <h2>Bank Details</h2>
+        <form action="" method="POST" enctype="multipart/form-data">
+             {% csrf_token %}
+
+            <label for="name"> Name:</label>
+            <input type="text"  name="name1" placeholder="Enter your username " required value="">
+
+            <label for="bankname">Bank name:</label>
+            <input type="text"  name="name2" placeholder="Enter your bank name" required value="">
+
+            <label for="accountnumber">Account number:</label>
+            <input type="number"  name="name3" placeholder="Enter your account number" required value="">
+
+            <label for="ifsc">IFSC code:</label>
+            <input type="text"  name="name4" placeholder="Enter your IFSC code" required value="">
+
+
+            <button type="submit">Save</button>
+        </form>
+    </div>
+</body>
+</html>

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Basic Data Table</title>
+    <style>
+
+         body{
+         font-family: monospace;
+          font-size: 15px;
+          }
+
+       .tablecontainer{
+          position: relative;
+          top: 100px;
+          width: 1000px;
+          left:250px;
+
+
+
+       }
+
+        table{
+            width:100%;
+            border: 2px solid black;
+            padding: 80px;
+            border-radius: 20px;
+            background-color: bisque;
+
+
+        }
+
+        th{
+
+            text-align: center;
+            border-radius: 10px;
+           background-color: violet;
+           padding: 10px;
+
+        }
+
+        td{
+            background-color: aliceblue;
+            position: relative;
+            top: 20px;
+            padding: 20px;
+        }
+
+
+        button{
+            padding: 5px;
+            font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+            border-radius: 10px;
+            box-shadow: 1px 1px 0 0 rgb(154, 142, 142);
+            cursor: pointer;
+
+        }
+
+        button:hover{
+            transform: scaleX(1.05);
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="tablecontainer">
+        <table>
+            <tr>
+                <th>Name</th>
+                <th>Bank</th>
+                <th>Account</th>
+                <th>Ifsc</th>
+
+            </tr>
+
+          {% for i in finkey %}
+          <tr>
+
+                <td>{{i.Name}}</td>
+                <td>{{i.Bank}}</td>
+                <td>{{i.Account}}</td>
+                <td>{{i.Ifsc}}</td>
+
+
+
+                <td><a href="update4/{{i.id}}"><button>update</button></a></td>
+                <td><a href="/del4/{{i.id}}"><button>delete</button></a></td>
+
+
+
+            </tr>
+
+          {%endfor%}
+
+
+        </table>
+
+    </div>
+
+
+
+
+
+
+
+</body>
+</html>

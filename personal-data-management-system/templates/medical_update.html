@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Medical Data</title>
+    <style>
+           body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color:black;
+             background-color: rgb(157, 186, 212);
+
+        }
+
+        .medical_container {
+            backdrop-filter: blur(10px);
+            padding: 100px;
+            padding-top:50px;
+            padding-bottom:0px;
+
+            border-radius: 10px;
+            width: 300px;
+            text-align: center;
+        }
+
+
+
+        label {
+            display: block;
+            margin-top: 10px;
+            text-align: left;
+            color:black;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            margin: 8px 0;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            margin-top: 10px;
+            box-sizing: border-box;
+            border: none;
+            border-radius: 5px;
+            background-color: #007BFF;
+            color: white;
+            cursor: pointer;
+        }
+        .background-image {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-image: url(static/medicalbg.jpg);
+            background-size: cover;
+            background-position: center;
+            z-index: -1;
+        }
+    </style>
+</head>
+<body>
+    <div class="background-image"></div>
+    <div class="medical_container">
+        <h2>Health Data</h2>
+        <form action="" method="post" enctype="multipart/form-data">
+             {% csrf_token %}
+            <label for="name">Name:</label>
+            <input type="text" name="name1" value="{{medicalkey.Name}}">
+
+            <label for="age">Age:</label>
+            <input type="number" name="name2" value="{{medicalkey.Age}}">
+
+            <label for="height">Height:</label>
+            <input type="text" name="name3" value="{{medicalkey.Height}}">
+
+            <label for="weight">Weight:</label>
+            <input type="number" name="name4" value="{{medicalkey.Weight}}">
+
+            <label for="Health">Do you have any health Issue ?</label>
+
+            <input type="text" name="name5" value="{{medicalkey.Health}}">
+
+
+            <button type="submit">Save</button>
+
+
+
+
+
+        </form>
+
+
+    </div>
+
+
+</body>
+</html>

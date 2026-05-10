@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Save It</title>
+    <link rel="stylesheet" href="static/officestyle.css">
+    <style>
+
+        body{
+    margin: 0;
+    padding: 0;
+    font-family: monospace;
+    font-size: 20px;
+}
+
+nav ul,nav ul a{
+    display: flex;
+    justify-self: right;
+    list-style: none;
+    gap: 10px 100px;
+    position: relative;
+    right: 20px;
+    cursor:pointer;
+    color:gray;
+
+}
+a:link{
+    text-decoration: none;
+}
+
+nav ul a:hover{
+    color: rgb(221, 95, 200);
+}
+
+.welcome_text{
+    position: relative;
+    bottom:600px;
+    left:100px;
+}
+
+.explore_button{
+    position: relative;
+    left:200px;
+    top:20px;
+
+}
+
+.officeimg{
+
+    height:800px;
+    width: 100%;
+
+}
+
+.about{
+    text-align: center;
+    position:relative;
+    bottom:150px;
+
+}
+
+.aboutimg{
+    height:500px;
+    animation-timeline: view(70% 5%);
+    animation-name: fade;
+}
+
+
+.row{
+    margin-top: 20px;
+    display: flex;
+    justify-content:center;
+    animation-timeline: view(70% 5%);
+    animation-name: fade;
+
+
+}
+.column{
+    flex:20px;
+    padding: 15px;
+}
+.card{
+    width:200px;
+    height: 400px;
+    background-color:white;
+    border: 1px solid black;
+    border-radius: 8px;
+    box-shadow:0 4px 8px rgba(0,0,0,0.2);
+    overflow:hidden;
+
+
+}
+
+.shop{
+    text-align: center;
+    position: relative;
+    top: 50px;
+}
+
+.shopimg{
+    width:100%;
+    height:200px;
+    border-radius: 8px 8px 0 0;
+    object-fit:cover;
+    margin-right: 0px;
+
+
+}
+
+.learnmorebutton{
+    text-align: center;
+}
+
+.aboutbutton:hover{
+    transition: transform 0.3s ease;
+    transform:scale(1.1);
+    cursor: pointer;
+
+}
+.aboutbutton{
+    margin-top: 10px;
+    width:100px;
+    padding: 10px;
+    border-radius: 6px;
+    background-color: #4CA1AF;
+    color: white;
+    font-size:15px ;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+
+
+
+
+ .shopimg:hover{
+    transition: transform 0.3s ease;
+    transform:scale(1.1);
+    cursor: pointer;
+}
+
+
+.popup-bg {
+    display:none;
+    position: fixed;
+    top:0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    justify-content: center;
+    align-items: center;
+
+}
+
+.popup-bg form{
+     margin-top: 40px;
+
+}
+
+/* Style for the popup content */
+.popup-content {
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    height: 400px;
+    width: 400px;
+    backdrop-filter: blur(20px);
+    background-color: rgb(121, 148, 228);
+
+}
+.popup-content button{
+    width:100px;
+    padding: 5px;
+    cursor: pointer;
+    background-color: blue;
+    margin-right:30px;
+    color: white;
+
+}
+.popup-content h2{
+
+    margin-top: 25px;
+    color:rgb(9, 9, 9);
+    font-size: 30px;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+}
+/* Style for the close button */
+.close-btn {
+    float: right;
+    cursor: pointer;
+    font-size: 25px;
+    color: white;
+
+}
+
+.popup-content form input{
+    padding: 8px;
+    border-top:0px;
+    border-left:0px;
+    border-right:0px;
+    background: none;
+    border-bottom-color:rgb(250, 244, 244) ;
+
+
+}
+
+.welcome_text{
+    color: white;
+    animation-name: welcome;
+    animation-duration: 5s;
+}
+
+@keyframes welcome {
+
+    20%{
+
+        transform: translateY(-50px);
+    }
+
+}
+
+.welcome_text h1{
+    font-size: 50px;
+}
+
+.welcome_text p{
+    font-size: 20px;
+}
+
+.welcome_text button{
+    padding: 7px;
+    width: 100px;
+    border-radius: 20px;
+    background-color: rgb(148, 21, 21);
+    color: white;
+    cursor: pointer;
+
+}
+
+.welcome_text button:hover{
+    transform: scaleY(1.2);
+
+    }
+
+    .row p{
+     font-size: 10px;
+    color: rgb(4, 31, 55);
+
+    }
+
+    .security img{
+    height:500px;
+    animation-timeline: view(70% 5%);
+    animation-name: fade;
+}
+        .security{
+    background-color: antiquewhite;
+    padding: 20px;
+    margin-top:20px;
+}
+
+hr{
+
+    height: 1px;
+    background-color: black;
+    width:1000px;
+}
+
+
+.btn{
+    margin-top: 50px;
+    width:50px;
+    padding: 10px;
+    border-radius: 150px;
+    background-color:black;
+    color: white;
+    font-size:25px ;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.btn:hover{
+    transition: transform 0.3s ease;
+    transform:scale(1.1);
+    cursor: pointer;
+}
+
+
+        @keyframes fade {
+    from {
+        opacity: 0;
+        transform: translateY(50px) scale(0.3);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+
+
+
+
+
+
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="navbar">
+            <nav>
+                <ul>
+                    <a href="" ><li>Home</li></a>
+                    <a href="#about"><li>About</li></a>
+                    <a href="#data"><li>Data's Information</li></a>
+                    <a href="#security"><li>Security</li></a>
+                    <a ><li onclick=" openPopup()" >Login</li></a>
+                </ul>
+            </nav>
+        </div>
+
+        
+
+        <div class="img">
+
+
+            <img  class="officeimg" src="static/office.png" alt="img">
+                    
+        
+        </div>
+
+        
+        <div class="welcome_text">
+            <h1>Welcome to Save It</h1>
+            <p>Trusted Partner For all Data Entry Services</p>
+            <br>
+            <button type="submit" class="explore_button" onclick="openPopup()">Explore</button>
+        </div>
+
+        <div class="about" id="about">
+            <h1>About Us</h1>
+            <br>
+            <img class="aboutimg" src="static/about.jpg" alt="img">
+            <p>
+                Welcome to Save It, your trusted partner for all data entry services. We specialize in delivering accurate, efficient,<br> <br> and high-quality data solutions that help businesses streamline operations and boost productivity.<br> <br>
+
+Our team of skilled professionals is dedicated to providing fast, reliable,<br> <br> and secure data entry services tailored to meet the unique needs of your business.<br> <br> Whether you're looking for data conversion, data cleaning, data processing,<br> <br> or manual data entry, we have the expertise to handle projects of any size and complexity.<br><br>
+
+At Save It , we understand that accurate data is crucial for making informed decisions <br><br> and driving business success. That’s why we focus on quality, confidentiality, and timely delivery <br><br> with every project we undertake. <br> <br>
+
+<p style="color: rgb(51, 0, 255);">Why choose us?</p> <br> <br>
+
+Accuracy: We prioritize error-free data entry and quality assurance <br> <br>
+Efficiency: Our team works quickly without compromising quality, meeting deadlines consistently. <br> <br>
+Security: We ensure your data is protected with the highest standards of security. <br> <br>
+Flexibility: We provide tailored services to suit your specific needs. <br> <br>
+Partner with Save It for all your data entry needs, and let us help you unlock the full potential of your data. 
+
+</p>
+
+
+
+
+        </div>
+
+
+
+        <div class="shop" id="data">
+
+            <h1>Data's Information</h1>
+
+          <div class="row">
+            <div class="column">
+                <div class="card">
+                    <img class="shopimg" src="static/custom_website_img.jpg" alt="img">
+                        <div class="container"><br>
+                            <h3 class="name" align="center"><b>Basic Identification Information</b></h3>
+                            <p><b>"typically includes the most essential information used to identify a person "</b></p>
+
+                               
+                        </div>
+                </div>
+            </div>
+
+            <div class="column">
+                <div class="card">
+                    <img class="shopimg" src="static/E-commerce_img.jpg" alt="img">
+                        <div class="container"><br>
+                            <h3 class="name" align="center"><b>Financial Information</b></h3>
+                            <p><b>"Investors, lenders, and partners often review financial data to evaluate the stability and performance of a business"</b></p>
+
+                               
+                        </div>
+                </div>
+            </div>
+
+            <div class="column">
+                <div class="card">
+                    <img class="shopimg" src="static/Responsive_img.jpg" alt="img">
+                        <div class="container"><br>
+                            <h3 class="name" align="center"><b>Medical Data</b></h3><br>
+                            <p><b>"Having access to your medical data means you can make informed decisions about your care"</b></p>
+
+                                
+                        </div>
+                </div>
+            </div>
+
+
+            <div class="column">
+                <div class="card">
+                    <img class="shopimg" src="static/wesite_maintance_img.jpg" alt="img">
+                        <div class="container"><br>
+                            <h3 class="name" align="center"><b>Employment Information</b></h3>
+                            <p><b> "Use is significant, as it directly impacts various aspects of your career, financial planning, and overall well-being"</b></p>
+
+                                
+                        </div>
+                </div>
+            </div>
+
+            <div class="column">
+                <div class="card">
+                    <img class="shopimg" src="static/search_engine_img.jpg" alt="img">
+                        <div class="container"><br>
+                            <h3 class="name" align="center"><b>Educational Information</b></h3>
+                            <p><b>"Education data is incredibly important for personal growth, career development, and even financial planning"</b></p>
+
+                               
+                        </div>
+                </div>
+            </div>
+
+
+            <div class="column">
+                <div class="card">
+                    <img class="shopimg" src="static/Content_System_img.jpg" alt="img">
+                        <div class="container"><br>
+                            <h3 class="name" align="center"><b>Files</b></h3>
+                            <br>
+                            <p><b>"As it ensures that you can easily access important information, protect your data, and maintain an organized life"</b></p>
+
+                                
+                        </div>
+                </div>
+            </div>
+
+        </div>
+
+
+        <div class="popup-bg" id="popup-bg">
+            <div class="popup-content">
+                <span class="close-btn" onclick="closePopup()">×</span>
+                <h2>LOGIN</h2>
+                <form action="" method="post" enctype="multipart/form-data">
+                    {%csrf_token%}
+
+
+                    <label for="gmail">Username:</label><br><br>
+                    <input type="text" id="gmail" name="name1"><br><br>
+                    <label for="password">Password:</label><br><br>
+                    <input type="password" id="password" name="name2" ><br><br>
+                    <h5>Don't have a account ?   <a href="signup">Sign-Up</a></h5>
+                    <button type="submit">Login</button>
+                </form>
+                
+            </div>
+
+        </div> 
+        
+
+        <div class="security" id="security">
+            <h1> Data Security</h1>
+            <br>
+            <img src="static/security.jpg" alt="img">
+            <br>
+            <br>
+            <p>
+
+                At Save It, we prioritize the security and privacy of your data. We are committed to protecting your sensitive information<br> <br>through robust security measures that ensure:<br><br>
+
+                Confidentiality: Only authorized individuals have access to your personal data <br><br>
+                Integrity: We maintain the accuracy and reliability of your information, preventing unauthorized alterations. <br><br>
+                Availability: Your data is available when needed, with minimal risk of downtime or loss. <br> <br>
+                Encryption: We use advanced encryption techniques to protect your data during storage and transmission. <br> <br>
+                Authentication: Our systems require secure user authentication to verify identity before granting access to data. <br> <br>
+                Access Control: Strict access controls are in place, ensuring that only authorized personnel can access specific information. <br><br>
+                Backup and Recovery: We regularly back up data and have established protocols to restore it in case of an emergency. <br><br>
+                Compliance: We adhere to all relevant legal and regulatory requirements to ensure your data is handled in compliance with global standards. <br> <br>
+                Incident Response: In the event of a breach or security incident, we have procedures in place to quickly respond and mitigate risks. <br> <br>
+                Our commitment to data security is central to maintaining your trust and confidence. <br> <br> We continuously evaluate and update our security practices to protect your information</p>
+
+                <br>
+                <br>
+                <hr>
+                <a href=""><button class="btn">↑</button></a>
+
+        </div>
+
+
+
+
+
+
+
+        </div>
+
+
+
+
+
+
+    </div>
+
+
+    <script>
+       function openPopup() {
+            document.getElementById('popup-bg').style.display = 'flex';
+        
+        }
+
+       function closePopup() {
+           document.getElementById('popup-bg').style.display = 'none';
+        
+        }
+
+
+    </script>
+</body>
+</html>

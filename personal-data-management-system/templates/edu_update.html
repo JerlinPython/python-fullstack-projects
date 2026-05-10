@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Education Data Update</title>
+
+    <style>
+            body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color:black;
+            background-color: rgb(157, 186, 212);
+
+        }
+
+        .basic_data_container {
+
+            border-radius: 10px;
+            width: 300px;
+            text-align: center;
+        }
+
+
+
+        label {
+            display: block;
+            margin-top: 10px;
+            text-align: left;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            margin: 8px 0;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            margin-top: 10px;
+            box-sizing: border-box;
+            border: none;
+            border-radius: 5px;
+            background-color: #007BFF;
+            color: white;
+            cursor: pointer;
+        }
+
+
+
+
+
+
+
+
+    </style>
+</head>
+<body>
+
+
+    <div class="basic_data_container">
+
+        <h2>Education Details</h2>
+        <br>
+        <form action="" method="post" enctype="multipart/form-data">
+                 {%csrf_token%}
+
+
+                <label for="name">Name:</label>
+                <input type="text" name="name1" value="{{edudatekey.Name}}">
+
+                <label for="school">School: </label>
+                <input type="text" name="name2" value="{{edudatekey.School}}">
+
+
+
+
+                <label for="course">Course :</label>
+                <input type="text" name="name3" value="{{edudatekey.Course}}">
+
+
+
+                <label for="degree">Degree:</label>
+                <input type="text"  name="name4" value="{{edudatekey.Degree}}">
+
+
+
+
+                <label for="resource">Resource:</label>
+                <input type="text"  name="name5" value="{{bupdatekey.Resource}}">
+
+
+
+
+
+
+                <button type="submit">Submit</button>
+
+        </form>
+    </div>
+
+
+</body>
+</html>

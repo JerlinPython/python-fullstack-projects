@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Datas</title>
+    <style>
+
+
+.row{
+    margin-top: 20px;
+    display: flex;
+    justify-content:center;
+    font-family:monospace;
+    font-size:20px;
+
+
+}
+.column{
+    flex:20px;
+    padding: 15px;
+}
+.card{
+    width:200px;
+    height: 400px;
+    background-color:white;
+    border: 1px solid black;
+    border-radius: 8px;
+    box-shadow:0 4px 8px rgba(0,0,0,0.2);
+    overflow:hidden;
+
+
+}
+
+.shop{
+    text-align: center;
+    position: relative;
+    top: 50px;
+}
+
+.shopimg{
+    width:100%;
+    height:200px;
+    border-radius: 8px 8px 0 0;
+    object-fit:cover;
+    margin-right: 0px;
+
+
+}
+
+         .shopimg:hover{
+    transition: transform 0.3s ease;
+    transform:scale(1.1);
+    cursor: pointer;
+}
+
+        .databutton{
+
+    width:100px;
+    padding: 10px;
+    border-radius: 6px;
+    background-color: #4CA1AF;
+    color: white;
+    font-size:15px ;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+
+
+        }
+
+        .databutton:hover{
+    transition: transform 0.3s ease;
+    transform:scale(1.1);
+    cursor: pointer;
+
+}
+
+        nav{
+        text-align:right;
+        margin-right:20px;
+        font-size:20px;
+        padding:10px;
+        color:blue;
+        }
+
+         a:link{
+            text-decoration: none;
+        }
+
+
+    </style>
+</head>
+<body>
+
+<a  href="home"><nav>Home</nav> </a>
+
+        <div class="shop" id="shop">
+
+          <div class="row">
+            <div class="column">
+                <div class="card">
+                    <img class="shopimg" src="static/custom_website_img.jpg" alt="img">
+                        <div class="container"><br>
+                            <h3 class="name" align="center"><b>Basic Identification Information</b></h3>
+                           <a href="basicland"><button type="submit" class="databutton">Enter</button></a>
+
+                        </div>
+                </div>
+            </div>
+
+            <div class="column">
+                <div class="card">
+                    <img class="shopimg" src="static/E-commerce_img.jpg" alt="img">
+                        <div class="container"><br>
+                            <h3 class="name" align="center"><b>Financial Information</b></h3>
+                            <br>
+
+                           <a href="finland"> <button type="submit" class="databutton">Enter</button> </a>
+
+                        </div>
+                </div>
+            </div>
+
+            <div class="column">
+                <div class="card">
+                    <img class="shopimg" src="static/Responsive_img.jpg" alt="img">
+                        <div class="container"><br>
+                            <h3 class="name" align="center"><b>Medical Data</b></h3>
+                            <br>
+                            <br>
+                           <a href="medicalland"> <button type="submit" class="databutton">Enter</button> </a>
+
+                        </div>
+                </div>
+            </div>
+
+
+            <div class="column">
+                <div class="card">
+                    <img class="shopimg" src="static/wesite_maintance_img.jpg" alt="img">
+                        <div class="container"><br>
+                            <h3 class="name" align="center"><b>Employment Information</b></h3>
+                            <br>
+                           <a href="empland"><button type="submit" class="databutton">Enter</button> </a>
+
+                        </div>
+                </div>
+            </div>
+
+            <div class="column">
+                <div class="card">
+                    <img class="shopimg" src="static/search_engine_img.jpg" alt="img">
+                        <div class="container"><br>
+                            <h3 class="name" align="center"><b>Educational Information</b></h3>
+                            <br>
+                           <a href="eduland"> <button type="submit" class="databutton">Enter</button> </a>
+
+                        </div>
+                </div>
+            </div>
+
+
+            <div class="column">
+                <div class="card">
+                    <img class="shopimg" src="static/Content_System_img.jpg" alt="img">
+                        <div class="container"><br>
+                            <h3 class="name" align="center"><b>Files</b></h3>
+                            <br>
+                            <br>
+                           <a href="fileland"> <button type="submit" class="databutton">Enter</button> </a>
+
+                        </div>
+                </div>
+            </div>
+
+        </div>
+ </body>
+</html>

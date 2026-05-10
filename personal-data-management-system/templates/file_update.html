@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Files Upload</title>
+
+    <style>
+          body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+             color:black;
+             background-color: rgb(157, 186, 212);
+
+
+        }
+
+        .file_container {
+            backdrop-filter: blur(20px);
+            padding: 100px;
+            padding-top:50px;
+            padding-bottom:0px;
+            border-radius: 20px;
+            width: 300px;
+            text-align: center;
+
+
+        }
+
+
+
+        label {
+            display: block;
+            margin-top: 10px;
+            text-align: left;
+        }
+
+        input ,select{
+            width: 100%;
+            padding: 10px;
+            margin: 8px 0;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            margin-top: 10px;
+            box-sizing: border-box;
+            border: none;
+            border-radius: 5px;
+            background-color: #007BFF;
+            color: white;
+            cursor: pointer;
+        }
+        .background-image {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-image: url(static/filesbg.jpg);
+            background-size: cover;
+            background-position: center;
+            z-index: -1;
+        }
+    </style>
+</head>
+<body>
+    <div class="background-image"> </div>
+
+    <div class="file_container">
+
+        <h2>Files</h2>
+        <form action="" method="post" enctype="multipart/form-data">
+             {% csrf_token %}
+
+            <label for="name">Name:</label>
+            <input type="text" name="name1" value="{{filekey.Name}}">
+
+            <label for="mark">Marksheet</label>
+
+            <img src="{{ filekey.Marksheet.url }}" alt="Current Image" style="max-width: 100px; max-height: 100px;">
+            <input type="file" class="form-control" name="name2">
+            <label>
+                <input type="checkbox" name="change_image"> Change Image
+             </label>
+
+             <label for="medical">Degree Certificate:</label>
+
+            <img src="{{ filekey.Degree.url }}" alt="Current Image" style="max-width: 100px; max-height: 100px;">
+            <input type="file" class="form-control" name="name3">
+            <label>
+                 <input type="checkbox" name="change_image"> Change Image
+            </label>
+
+
+            <label for="passport">Passport:</label>
+            <img src="{{ filekey.Passport.url }}" alt="Current Image" style="max-width: 100px; max-height: 100px;">
+            <input type="file" class="form-control" name="name4">
+            <label>
+                <input type="checkbox" name="change_image"> Change Image
+            </label>
+
+
+            <input type="file" name="name4">
+
+            <label for="medical">Medical Certificate:</label>
+            <img src="{{ filekey.Medical.url }}" alt="Current Image" style="max-width: 100px; max-height: 100px;">
+            <input type="file" class="form-control" name="name5">
+            <label>
+                <input type="checkbox" name="change_image"> Change Image
+            </label>
+
+
+            <label for="work">Work Experience Certificate:</label>
+
+            <img src="{{ filekey.Work.url }}" alt="Current Image" style="max-width: 100px; max-height: 100px;">
+            <input type="file" class="form-control" name="name6">
+            <label>
+                <input type="checkbox" name="change_image"> Change Image
+            </label>
+
+            <br>
+            <br>
+
+            <button type="submit">Save</button>
+
+
+
+
+
+
+
+        </form>
+
+
+
+
+    </div>
+
+</body>
+</html>

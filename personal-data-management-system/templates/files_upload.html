@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Files Upload</title>
+
+    <style>
+          body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color:white;
+
+        }
+
+        .file_container {
+            backdrop-filter: blur(20px);
+            padding: 100px;
+            padding-top:50px;
+            padding-bottom:0px;
+            border-radius: 20px;
+            width: 300px;
+            text-align: center;
+        }
+
+
+
+        label {
+            display: block;
+            margin-top: 10px;
+            text-align: left;
+        }
+
+        input ,select{
+            width: 100%;
+            padding: 10px;
+            margin: 8px 0;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            margin-top: 10px;
+            box-sizing: border-box;
+            border: none;
+            border-radius: 5px;
+            background-color: #007BFF;
+            color: white;
+            cursor: pointer;
+        }
+        .background-image {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-image: url(static/filesbg.jpg);
+            background-size: cover;
+            background-position: center;
+            z-index: -1;
+        }
+
+          nav{
+            position: relative;
+            left: 700px;
+
+            list-style: none;
+
+        }
+
+        a:link{
+            text-decoration: none;
+        }
+
+        nav li{
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="background-image"> </div>
+
+    <div class="file_container">
+         <nav>
+           <a href="fileland"> <li>Back</li> </a>
+        </nav>
+
+        <h2>Files</h2>
+        <form action="" method="post" enctype="multipart/form-data">
+             {% csrf_token %}
+
+            <label for="name">Name:</label>
+            <input type="text" name="name1" placeholder="Enter a Name" required>
+
+            <label for="10th">10th Marksheet:</label>
+
+            <input type="file" name="name2" required>
+
+            <label for="degree">Degree Certificate:</label>
+
+            <input type="file" name="name3">
+
+            <label for="passport">Passport:</label>
+
+            <input type="file" name="name4">
+
+            <label for="medical">Medical Certificate:</label>
+            <input type="file" name="name5">
+
+            <label for="work">Work Experience Certificate:</label>
+            <input type="file" name="name6">
+            <br>
+            <br>
+
+            <button type="submit">Save</button>
+
+
+
+
+
+
+
+        </form>
+
+
+
+
+    </div>
+    
+</body>
+</html>

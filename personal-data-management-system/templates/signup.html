@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sign-Up</title>
+
+    <style>
+
+        body{
+
+          background:url(static/sign_upbg1.jpg);
+          background-repeat: no-repeat;
+
+    background-size: cover;
+
+        }
+
+        .signup img{
+    width: 300px;
+    height: 400px;
+    margin-right:250px;
+    border-radius:10px;
+}
+
+.signup{
+    display: flex;
+    justify-content: center;
+    margin-top: 200px;
+    gap: 20px 100px;
+
+    padding: 20px;
+}
+
+.signuptext{
+    display: inline;
+    position: relative;
+    top: 150px;
+    right:200px;
+}
+
+.signuptext input{
+
+        padding: 8px;
+        border-top:0px;
+        border-left:0px;
+        border-right:0px;
+        background: none;
+        border-bottom-color:rgb(250, 244, 244) ;
+        background-color: rgb(218, 209, 209);
+
+
+}
+
+.signupbutton{
+    margin-top: 10px;
+    width:100px;
+    padding: 10px;
+    border-radius: 6px;
+    background-color: #846ce3;
+    color: white;
+    font-size:15px ;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    margin-left:120px;
+
+
+}
+
+
+
+
+    </style>
+</head>
+<body>
+
+  <div class="signup" id="signup">
+            <img src="static/sign_up.jpg" alt="img">
+      <form action="" method="post" enctype="multipart/form-data">
+          {%csrf_token%}
+            <div class="signuptext">
+               <input type="text" name="name1" placeholder="Enter a Name" required>
+               <input type="email" name="name2" placeholder="Enter a Gmail" required><br><br>
+               <input style="margin-left:80px" type="password" name="name3" placeholder="Enter a Password" required><br><br>
+                <br>
+               <button class="signupbutton" type="submit">Sign-Up</button>
+            </div>
+
+          </form>
+
+  </div>
+
+</body>
+</html>

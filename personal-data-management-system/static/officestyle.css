@@ -1,0 +1,233 @@
+body{
+    margin: 0;
+    padding: 0;
+    font-family: monospace;
+    font-size: 20px;
+}
+
+nav ul{
+    display: flex;
+    justify-self: right;
+    list-style: none;
+    gap: 10px 100px;
+    position: relative;
+    right: 20px;
+}
+
+.welcome_text{
+    position: relative;
+    bottom:600px;
+    left:100px;
+}
+
+.explore_button{
+    position: relative;
+    left:200px;
+    top:20px;
+  
+}
+
+.officeimg{
+    
+    height:800px;
+    width: 100%;
+   
+}
+
+.about{
+    text-align: center;
+}
+
+.aboutimg{
+    height:500px;
+     animation-timeline: view(70% 5%);
+    animation-name: fade;
+}
+
+
+.row{
+    margin-top: 20px;
+    display: flex;
+    justify-content:center;
+     animation-timeline: view(70% 5%);
+    animation-name: fade;
+    
+
+}
+.column{
+    flex:20px;
+    padding: 15px;
+}
+.card{
+    width:200px;
+    height: 400px;
+    background-color:white;
+    border: 1px solid black;
+    border-radius: 8px;
+    box-shadow:0 4px 8px rgba(0,0,0,0.2);
+    overflow:hidden;
+   
+   
+}
+
+.shop{
+    text-align: center;
+    position: relative;
+    top: 50px;
+}
+
+.shopimg{
+    width:100%;
+    height:200px;
+    border-radius: 8px 8px 0 0;
+    object-fit:cover;
+    margin-right: 0px;
+
+
+}
+
+.learnmorebutton{
+    text-align: center;
+}
+
+.aboutbutton:hover{
+    transition: transform 0.3s ease;
+    transform:scale(1.1);
+    cursor: pointer;
+
+}
+.aboutbutton{
+    margin-top: 10px;
+    width:100px;
+    padding: 10px;
+    border-radius: 6px;
+    background-color: #4CA1AF;
+    color: white;
+    font-size:15px ;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+
+
+
+
+ .shopimg:hover{
+    transition: transform 0.3s ease;
+    transform:scale(1.1);
+    cursor: pointer;
+}
+
+
+.popup-bg {
+    display:none;
+    position: fixed;
+    top:0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.popup-bg form{
+     margin-top: 40px;
+     
+}
+
+/* Style for the popup content */
+.popup-content {
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    height: 400px;
+    width: 400px;
+    backdrop-filter: blur(20px);
+    background-color: rgb(121, 148, 228);
+    
+}
+.popup-content button{
+    width:100px;
+    padding: 5px;
+    margin-left: 30px;
+    background-color: blue;
+    color: white;
+
+}
+.popup-content h2{
+ 
+    margin-top: 25px;
+    color:rgb(9, 9, 9);
+    font-size: 30px;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+}
+/* Style for the close button */
+.close-btn {
+    float: right;
+    cursor: pointer;
+    font-size: 25px;
+    color: white;
+
+}
+
+.popup-content form input{
+    padding: 8px;
+    border-top:0px;
+    border-left:0px;
+    border-right:0px;
+    background: none;
+    border-bottom-color:rgb(250, 244, 244) ;
+
+    
+}
+
+
+.signup img{
+    width: 300px;
+    height: 400px;
+}
+
+.signup{
+    display: flex;
+    justify-content: center;
+    margin-top: 100px;
+    gap: 20px 100px;
+    background-color: rgb(69, 69, 244);
+    padding: 20px;
+}
+
+.signuptext{
+    display: inline;
+    position: relative;
+    top: 100px;
+}
+
+.signuptext input{
+    
+        padding: 8px;
+        border-top:0px;
+        border-left:0px;
+        border-right:0px;
+        background: none;
+        border-bottom-color:rgb(250, 244, 244) ;  
+        background-color: rgb(218, 209, 209);   
+    
+}
+
+.signupbutton{
+    margin-top: 10px;
+    width:100px;
+    padding: 10px;
+    border-radius: 6px;
+    background-color: #846ce3;
+    color: white;
+    font-size:15px ;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+
+}
+
+
+
+
+

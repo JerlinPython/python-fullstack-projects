@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Basic Data Update</title>
+
+    <style>
+            body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color:black;
+            background-color: rgb(157, 186, 212);
+
+        }
+
+        .basic_data_container {
+
+            border-radius: 10px;
+            width: 300px;
+            text-align: center;
+        }
+
+
+
+        label {
+            display: block;
+            margin-top: 10px;
+            text-align: left;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            margin: 8px 0;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            margin-top: 10px;
+            box-sizing: border-box;
+            border: none;
+            border-radius: 5px;
+            background-color: #007BFF;
+            color: white;
+            cursor: pointer;
+        }
+
+
+
+
+
+
+
+
+    </style>
+</head>
+<body>
+
+
+    <div class="basic_data_container">
+
+
+        <h2>Personal Details</h2>
+        <br>
+        <form action="" method="post" enctype="multipart/form-data">
+                 {%csrf_token%}
+
+
+                <label for="name">Name:</label>
+                <input type="text" name="name1" value="{{bupdatekey.Name}}">
+
+                <label for="age">Age : </label>
+                <input type="number" name="name2" value="{{bupdatekey.Age}}">
+
+
+
+
+                <label for="phone">Phone :</label>
+                <input type="text" name="name3" value="{{bupdatekey.Phone}}">
+
+
+
+                <label for="email">Email:</label>
+                <input type="email"  name="name4" value="{{bupdatekey.Email}}">
+
+
+
+
+                <label for="gender">Gender:</label>
+                <input type="text"  name="gender" value="{{bupdatekey.Gender}}">
+
+
+
+                <label for="date">Date of Birth:</label>
+                <input type="date" name="name5" value="{{bupdatekey.Date|date:'Y-m-d'}}">
+
+
+                <button type="submit">Submit</button>
+
+        </form>
+    </div>
+
+
+</body>
+</html>
